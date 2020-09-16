@@ -1,10 +1,11 @@
-import { log, Application, send } from "./deps.ts";
+import { log, parseArgs, Application, send } from "./deps.ts";
 
 import api from "./api.ts";
 
 const app = new Application();
 
-const PORT: number = Number(Deno.env.get("PORT")) || 8000;
+const argPort = parseArgs(Deno.args).port;
+const PORT: number = argPort ? Number(argPort) : 8000;
 
 await log.setup({
   handlers: {

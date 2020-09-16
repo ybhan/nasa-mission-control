@@ -3,14 +3,14 @@ import { desc, task, sh, run } from "https://deno.land/x/drake@v1.3.2/mod.ts";
 desc("Run App");
 task("start", [], async function () {
   await sh(
-    "PORT=8000 deno run --lock=lock.json --allow-env --allow-net --allow-read src/mod.ts",
+    "deno run --lock=lock.json --allow-net --allow-read src/mod.ts --port=8000",
   );
 });
 
 desc("Run App via denon for development");
 task("dev", [], async function () {
   await sh(
-    "PORT=8000 denon run --lock=lock.json --allow-env --allow-net --allow-read src/mod.ts",
+    "denon run --lock=lock.json --allow-net --allow-read src/mod.ts --port=8000",
   );
 });
 
