@@ -1,0 +1,1 @@
+web: deno run --lock=lock.json --allow-net --allow-read src/mod.ts --port=${PORT}
